@@ -1,0 +1,65 @@
+import random
+
+def inputvalidate(ipstring):
+    List=["easy","medium","hard"]    
+    for str in List:
+        if(str==ipstring):
+            print('The selected level is:',str)
+            return True
+
+    print('Invalid')
+    return False
+
+def guess(random_num):
+    while True:
+        try:
+            print('now the turn to enter a number is:',player1)
+            print('Enter a guess')
+            guess=int(input())
+
+            if(guess==random_num):
+                print('player1 is win\nGAME OVER')
+                break
+
+        except ValueError or NameError:
+            print('Invalid Input') 
+
+        try:
+            print('now the turn to guess a number is:',player2)
+            print('Enter a guess')
+            guess=int(input())
+
+            if(guess==random_num):
+                print('player2 is win\nGAME OVER')
+                break
+            
+        except ValueError or NameError:
+            print('Invalid Input')
+
+def random_gen(select):
+    if(select=="easy"):
+            random1=random.randint(1,50)
+            print('You have to enter between 1 and 50')
+    elif(select=="medium"):
+        random1=random.randint(1,100)
+        print('You have to enter between 1 and 100')
+    elif(select=="hard"):
+        random1=random.randint(1,150)
+        print('You have to enter between 1 and 150') 
+    return random1
+def input_range(random1):
+    if(select=="easy" and random1>=1 and random1<=50):
+        print('Your guess is between the range')
+      
+player1=input('Enter player1 name:')
+player2=input('Enter player2 name:')        
+while True:
+    
+    select=input('select your level as anyone from easy,medium,hard:')
+    if(inputvalidate(select)):
+        random_num=random_gen(select)
+
+        break
+    else:
+        continue
+guess(random_num)
